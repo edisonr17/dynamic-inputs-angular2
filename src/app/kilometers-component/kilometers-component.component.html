@@ -1,0 +1,25 @@
+<div class='row' [formGroup]='kilometersFormGroup'>
+<div class='form-group'>
+   <button class='btn btn-primary' (click)='addRoute()'>Agregar</button>
+</div>
+
+<div formArrayName="routes">
+  <div *ngFor="let route of kilometersFormGroup.controls.routes.controls; let i=index" class="panel panel-default">
+    <div class="panel-heading">
+      Ruta {{i + 1}}
+    </div>
+    <div class='panel-body' [formGroupName]="i">
+            <div class="form-group col-xs-6">
+                <label>km</label>
+                <input type="number" class="form-control" formControlName="km">
+                
+            </div>
+            <div class="form-group col-xs-6">
+                <label>Descripción</label>
+                <input type="text" class="form-control" formControlName="description">
+                
+            </div>
+    </div>
+    </div>
+  </div>
+</div>
